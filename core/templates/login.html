@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+
+{% block content%}
+
+<form method="post" class="lg:w-1/4 px-4 mx-auto">
+  
+
+   {% csrf_token%}
+    <div class="mb-5">
+        <label class="text-white">
+            Username
+        </label>
+        <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
+    </div>
+    <div class="mb-5">
+        <label class="text-white">
+            Password
+        </label>
+        <input type="password" name="password" class="w-full mt-2 px-4 py-2 rounded-xl">
+    </div>
+   
+
+    <button type="submit"> Login
+    </button>
+   <div>
+   
+</div>
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p> {{error}} </p>
+{% endfor %}
+{% endif %}
+   
+</form>
+{% endblock%}
